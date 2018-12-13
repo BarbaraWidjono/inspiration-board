@@ -12,14 +12,29 @@ class Board extends Component {
     super();
 
     this.state = {
+      allData: CARD_DATA,
       cards: [],
     };
   }
 
   render() {
+
+    const parseCardData = this.state.allData["cards"]
+    console.log(parseCardData);
+
+    const allCards = parseCardData.map((card, i) => {
+      return <Card
+        key={i}
+        text={card.text}
+        emoji={card.emoji} />
+    })
+
     return (
       <div>
         Board
+        <section>
+          {allCards}
+        </section>
       </div>
     )
   }
