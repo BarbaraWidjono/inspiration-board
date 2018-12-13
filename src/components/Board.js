@@ -30,11 +30,9 @@ class Board extends Component {
     })
 
     return (
-      <div>
+      <div className="board">
         Board
-        <section>
-          {allCards}
-        </section>
+        {allCards}
       </div>
     )
   }
