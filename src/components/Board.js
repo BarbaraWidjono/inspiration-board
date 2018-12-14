@@ -34,6 +34,10 @@ class Board extends Component {
       })
   }
 
+  removeCard = () => {
+    console.log("Inside Board.js, removeCard");
+  }
+
   render() {
 
     // const parseCardData = this.state.allData["cards"]
@@ -52,7 +56,8 @@ class Board extends Component {
       console.log(formattedCard);
       return <Card
         key={i}
-        card={formattedCard} />
+        card={formattedCard}
+        removeCardCallback={this.removeCard} />
     });
 
     return (
