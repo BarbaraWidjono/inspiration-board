@@ -7,9 +7,9 @@ import './Card.css';
 const Card = (props) => {
   const { id, text, emoji } = props.card;
 
-  const removeCard = ({id}) => {
+  const removeCard = (id) => {
     console.log("Inside of Card.js, removeCard");
-    props.removeCardCallback();
+    props.removeCardCallback(id);
   }
 
   return (
@@ -19,7 +19,7 @@ const Card = (props) => {
       <button
         type="button"
         className="card__delete"
-        onClick={() => removeCard({id})}
+        onClick={() => removeCard(id)}
       >
         x
       </button>
