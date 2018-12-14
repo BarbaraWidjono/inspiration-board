@@ -5,7 +5,7 @@ import emoji from 'emoji-dictionary';
 import './Card.css';
 
 const Card = (props) => {
-  const { text, emoji } = props;
+  const { id, text, emoji } = props.card;
 
 
   return (
