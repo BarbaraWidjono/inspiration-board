@@ -34,14 +34,15 @@ class Board extends Component {
       })
   }
 
-  removeCard = () => {
+  removeCard = (id) => {
     console.log("Inside Board.js, removeCard");
+    const deleteURL = "https://inspiration-board.herokuapp.com/cards/";
+    const deleteAPI = `${deleteURL}${id}`;
+    console.log(id);
+    console.log(deleteAPI);
   }
 
   render() {
-
-    // const parseCardData = this.state.allData["cards"]
-    // console.log(parseCardData);
 
     console.log("Inside Board.js, beneath render", this.state.allData);
 
