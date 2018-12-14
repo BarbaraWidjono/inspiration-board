@@ -17,14 +17,10 @@ class Board extends Component {
   }
 
   componentDidMount(){
-    console.log("Inside Component did mount");
     const getAllCards = "https://inspiration-board.herokuapp.com/boards/barbara/cards";
 
     axios.get(getAllCards)
       .then((response) => {
-        console.log("Inside Board.js axios get");
-        console.log(response);
-        console.log(response.data);
         this.setState({
           allData: response.data,
         })
@@ -36,7 +32,12 @@ class Board extends Component {
 
   renderUpdated = () => {
     console.log("Inside Board.js, renderUpdated");
-    
+    let allCards = this.state.allData;
+    allCards.forEach(function(element){
+      console.log(element["card"]);
+    })
+
+
   }
 
   removeCard = (id) => {
@@ -68,7 +69,6 @@ class Board extends Component {
         emoji: card["card"].emoji,
       }
 
-      console.log(formattedCard);
       return <Card
         key={i}
         card={formattedCard}
@@ -77,7 +77,6 @@ class Board extends Component {
 
     return (
       <div className="board">
-        Board
         {allCards}
       </div>
     )
