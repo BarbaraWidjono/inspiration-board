@@ -8,7 +8,6 @@ const Card = (props) => {
   const { id, text, emoji } = props.card;
 
   const removeCard = (id) => {
-    console.log("Inside of Card.js, removeCard");
     props.removeCardCallback(id);
   }
 

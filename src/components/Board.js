@@ -34,12 +34,26 @@ class Board extends Component {
       })
   }
 
+  renderUpdated = () => {
+    console.log("Inside Board.js, renderUpdated");
+    
+  }
+
   removeCard = (id) => {
-    console.log("Inside Board.js, removeCard");
     const deleteURL = "https://inspiration-board.herokuapp.com/cards/";
     const deleteAPI = `${deleteURL}${id}`;
-    console.log(id);
-    console.log(deleteAPI);
+
+    // delete card from api
+    axios.delete(deleteAPI)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+
+    // render an updated board
+    this.renderUpdated();
   }
 
   render() {
