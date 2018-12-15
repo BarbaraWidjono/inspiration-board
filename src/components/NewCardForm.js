@@ -47,7 +47,7 @@ class NewCardForm extends Component {
       <form
         className="new-card-form"
         onSubmit={this.onFormSubmit}>
-        <h3 className="new-card-form__header">Add a Note</h3>
+        <p className="new-card-form__header">Add a Note</p>
         <section className="new-card-form__form">
           <div>
             <label htmlFor="text" className="new-card-form__form-label">Text:</label>
