@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import emoji from 'emoji-dictionary';
-
 import './Card.css';
+import Emoji from './Emoji';
 
 const Card = (props) => {
   const { id, text, emoji } = props.card;
@@ -14,7 +13,8 @@ const Card = (props) => {
   return (
     <div className="card">
       <p className="card__content">{text}</p>
-      <p>{emoji}</p>
+      <Emoji chars={emoji}/>
+
       <button
         type="button"
         className="card__delete"

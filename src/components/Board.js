@@ -5,6 +5,7 @@ import axios from 'axios';
 import './Board.css';
 import Card from './Card';
 import NewCardForm from './NewCardForm';
+// import emoji from 'emoji-dictionary';
 
 class Board extends Component {
   constructor() {
@@ -69,6 +70,8 @@ class Board extends Component {
   }
 
   render() {
+
+    // const test = emoji.getUnicode("railway_car")
 
     const allCards = this.state.allData.map((card, i) => {
 

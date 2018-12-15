@@ -48,23 +48,26 @@ class NewCardForm extends Component {
         className="new-card-form"
         onSubmit={this.onFormSubmit}>
         <h3 className="new-card-form__header">Add a Note</h3>
-        <div>
-          <label htmlFor="text" className="new-card-form__form-label">Text:</label>
-          <input
-            name="text"
-            value={this.state.text}
-            onChange={this.inputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="emoji" className="new-card-form__form-label">Emoji:</label>
-          <input
-            name="emoji"
-            value={this.state.emoji}
-            onChange={this.inputChange}
-          />
-        </div>
-        <input type="submit" name="submit" value="Create New Note" />
+        <section className="new-card-form__form">
+          <div>
+            <label htmlFor="text" className="new-card-form__form-label">Text:</label>
+            <input
+              name="text"
+              value={this.state.text}
+              onChange={this.inputChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="emoji" className="new-card-form__form-label">Emoji:</label>
+            <input
+              name="emoji"
+              value={this.state.emoji}
+              onChange={this.inputChange}
+            />
+          </div>
+          <input type="submit" name="submit" value="Create New Note" className="new-card-form__form-button" />
+        </section>
+
       </form>
     )
   }
