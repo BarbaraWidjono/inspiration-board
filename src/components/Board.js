@@ -46,6 +46,28 @@ class Board extends Component {
 
   }
 
+  createNote = (newNote) => {
+    const newNoteURL = "https://inspiration-board.herokuapp.com/boards/barbara/cards";
+
+    axios.post(newNoteURL, newNote)
+      .then((response) => {
+        const getAllCards = "https://inspiration-board.herokuapp.com/boards/barbara/cards";
+
+        axios.get(getAllCards)
+          .then((response) => {
+            this.setState({
+              allData: response.data,
+            })
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
   render() {
 
     const allCards = this.state.allData.map((card, i) => {
@@ -66,7 +88,7 @@ class Board extends Component {
     return (
       <div className="board">
         {allCards}
-        <NewCardForm />
+        <NewCardForm createNoteCallback={this.createNote}/>
       </div>
     )
   }

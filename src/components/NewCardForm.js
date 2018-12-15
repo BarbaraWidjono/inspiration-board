@@ -27,7 +27,19 @@ class NewCardForm extends Component {
   onFormSubmit = (event) => {
     event.preventDefault();
 
-    console.log("Inside onFormSubmit", this.state.text);
+    const newNote = {
+      text: this.state.text,
+      emoji: this.state.emoji,
+    }
+
+    if(this.state.text.length > 0){
+      this.setState({
+        text: "",
+        emoji: "",
+      })
+    }
+
+    this.props.createNoteCallback(newNote);
   }
 
   render(){
@@ -41,6 +53,14 @@ class NewCardForm extends Component {
           <input
             name="text"
             value={this.state.text}
+            onChange={this.inputChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="emoji" className="new-card-form__form-label">Emoji:</label>
+          <input
+            name="emoji"
+            value={this.state.emoji}
             onChange={this.inputChange}
           />
         </div>
