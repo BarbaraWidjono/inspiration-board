@@ -31,33 +31,3 @@ Card.propTypes = {
 };
 
 export default Card;
-
-// class Card extends Component {
-//
-//   constructor(props){
-//     super(props)
-//
-//     this.state = {
-//       allCards: this.props.allCards,
-//     }
-//   }
-//
-//
-//
-//   render() {
-//
-//     console.log(this.state.allCards);
-//
-//     return (
-//       <div className="card">
-//         Card
-//       </div>
-//     )
-//   }
-// }
-//
-// Card.propTypes = {
-//
-// };
-//
-// export default Card;

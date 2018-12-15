@@ -66,6 +66,7 @@ class Board extends Component {
     return (
       <div className="board">
         {allCards}
+        <NewCardForm />
       </div>
     )
   }
