@@ -5,7 +5,6 @@ import axios from 'axios';
 import './Board.css';
 import Card from './Card';
 import NewCardForm from './NewCardForm';
-// import CARD_DATA from '../data/card-data.json';
 
 class Board extends Component {
   constructor() {
@@ -30,36 +29,24 @@ class Board extends Component {
       })
   }
 
-  renderUpdated = () => {
-    console.log("Inside Board.js, renderUpdated");
-    let allCards = this.state.allData;
-    allCards.forEach(function(element){
-      console.log(element["card"]);
-    })
-
-
-  }
-
   removeCard = (id) => {
     const deleteURL = "https://inspiration-board.herokuapp.com/cards/";
     const deleteAPI = `${deleteURL}${id}`;
 
-    // delete card from api
     axios.delete(deleteAPI)
       .then((response) => {
-        console.log(response);
+        const updateList = this.state.allData.filter((card) =>{
+          return card["card"].id !== id;
+        })
+        this.setState({allData: updateList});
       })
       .catch((error) => {
         console.log(error);
       })
 
-    // render an updated board
-    this.renderUpdated();
   }
 
   render() {
-
-    console.log("Inside Board.js, beneath render", this.state.allData);
 
     const allCards = this.state.allData.map((card, i) => {
 
@@ -72,7 +59,8 @@ class Board extends Component {
       return <Card
         key={i}
         card={formattedCard}
-        removeCardCallback={this.removeCard} />
+        removeCardCallback={this.removeCard}
+        />
     });
 
     return (
