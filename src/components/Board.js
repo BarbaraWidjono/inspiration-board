@@ -11,6 +11,8 @@ class Board extends Component {
 
     this.state = {
       allData: [],
+      errors: "",
+      hide: "false",
     };
   }
 
@@ -25,6 +27,7 @@ class Board extends Component {
       })
       .catch((error) => {
         console.log(error);
+        this.setState({errors: "Ooops couldn't find the board", hide: "true"});
       })
   }
 
@@ -40,7 +43,7 @@ class Board extends Component {
         this.setState({allData: updateList});
       })
       .catch((error) => {
-        console.log(error);
+        this.setState({errors: "Ooops couldn't delete that card. Please try again"});
       })
 
   }
@@ -59,11 +62,11 @@ class Board extends Component {
             })
           })
           .catch((error) => {
-            console.log(error);
+            this.setState({errors: "Ooops, wasn't able to connect to your board. Please try again!!"});
           })
       })
       .catch((error) => {
-        console.log(error);
+        this.setState({errors: "Ooops, wasn't able to make a new card. Please try again!"});
       })
   }
 
@@ -86,8 +89,12 @@ class Board extends Component {
 
     return (
       <div className="board">
+        {this.state.errors}
         {allCards}
-        <NewCardForm createNoteCallback={this.createNote}/>
+        <section className={this.state.hide}>
+          <NewCardForm createNoteCallback={this.createNote}/>
+        </section>
+
       </div>
     )
   }
