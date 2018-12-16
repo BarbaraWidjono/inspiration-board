@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
 import Emoji from './Emoji';
@@ -28,6 +28,7 @@ const Card = (props) => {
 
 Card.propTypes = {
   card: PropTypes.object.isRequired,
+  removeCardCallback: PropTypes.func.isRequired
 };
 
 export default Card;

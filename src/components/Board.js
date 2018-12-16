@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 // npm install axios --save
 import './Board.css';
 import Card from './Card';
 import NewCardForm from './NewCardForm';
-// import emoji from 'emoji-dictionary';
 
 class Board extends Component {
   constructor() {
@@ -71,8 +69,6 @@ class Board extends Component {
 
   render() {
 
-    // const test = emoji.getUnicode("railway_car")
-
     const allCards = this.state.allData.map((card, i) => {
 
       const formattedCard = {
@@ -97,9 +93,5 @@ class Board extends Component {
   }
 
 }
-
-Board.propTypes = {
-
-};
 
 export default Board;
